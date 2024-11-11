@@ -8,7 +8,6 @@ on:
 permissions:
   contents: write  # Permissões de escrita para acessar e modificar o conteúdo do repositório
   pages: write     # Permissões de escrita para fazer deploy no GitHub Pages
-  id-token: read   # Permissão para ler o id-token (se necessário para outras ações)
   
 jobs:
   build:
