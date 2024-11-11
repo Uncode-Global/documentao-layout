@@ -3,12 +3,13 @@ name: Deploy to GitHub Pages
 on:
   push:
     branches:
-      - main  # Ajuste para a branch de sua preferência
+      - main  # Substitua pela branch que deseja monitorar
 
 permissions:
-  contents: write  # Permissões de escrita para acessar e modificar o conteúdo do repositório
-  pages: write     # Permissões de escrita para fazer deploy no GitHub Pages
-  
+  contents: write
+  pages: write
+  id-token: write
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -20,7 +21,7 @@ jobs:
     - name: Set up Node.js
       uses: actions/setup-node@v3
       with:
-        node-version: '20'  # Atualizado para a versão mais recente do Node.js (Node.js 20)
+        node-version: '20'  # Atualizado para Node.js 20
 
     - name: Install dependencies
       run: npm install
@@ -31,5 +32,5 @@ jobs:
     - name: Deploy to GitHub Pages
       uses: peaceiris/actions-gh-pages@v3
       with:
-        personal_token: ${{ secrets.PERSONAL_TOKEN }}  # Certifique-se de que o token está correto
-        publish_dir: ./_site  # Direciona o diretório de saída para o GitHub Pages
+        github_token: ${{ secrets.GITHUB_TOKEN }}  # Alternativa ao token pessoal
+        publish_dir: ./_site  # Direciona para o diretório de saída do Eleventy
