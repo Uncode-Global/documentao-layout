@@ -1,0 +1,26 @@
+<!-- src/_layouts/layout.njk -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ title }}</title>
+  <link rel="stylesheet" href="/css/styles.css">
+</head>
+<body class="{{ bodyClass }}">
+
+    <div class="page-wrapper">
+
+      <!-- Incluir o Header -->
+    {% include "src/dev-assets/_layouts/header.njk" %}
+    {% include "src/gestao-projeto/homepage/funcionalidade.njk" %}
+
+    <main>
+    {{ content | safe }}
+  </main>
+
+    </div>
+
+  <script src="/js/scripts.js"></script>
+</body>
+</html>
